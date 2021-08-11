@@ -224,7 +224,8 @@ void EquidistantDistortion::undistort(
       const_cast<Eigen::MatrixBase<DERIVED> &>(yconst);
   y.derived().resize(2);
 
-  // we use f^-1 ' = ( f'(f^-1) ) '
+  // see https://www.sfu.ca/math-coursenotes/Math%20157%20Course%20Notes/sec_DerivativesofInverse.html
+  // we use f^-1 ' = ( f'[f^-1] )^-1
   // with f^-1 the undistortion
   // and  f the distortion
   undistort(y);  // first get the undistorted image
